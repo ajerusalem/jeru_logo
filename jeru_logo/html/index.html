@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Display</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="logo-container">
+        <img src="logo.png" alt="Server Logo">
+    </div>
+
+    <script>
+        window.addEventListener("message", (event) => {
+            if (event.data.type === "toggle") {
+                const logoContainer = document.getElementById("logo-container");
+                if (event.data.action === "show") {
+                    logoContainer.classList.remove("hide");
+                    logoContainer.classList.add("show");
+                } else if (event.data.action === "hide") {
+                    logoContainer.classList.remove("show");
+                    logoContainer.classList.add("hide");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
